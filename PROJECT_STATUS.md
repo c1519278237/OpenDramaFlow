@@ -13,11 +13,12 @@ Pre-release / Phase 0 — Development Environment
 - Practiced the working tree and staging area with the initial documentation.
 - Created the first commit and pushed `main` to the public GitHub repository.
 - Connected VS Code to the Git executable installed at `E:\Git\cmd\git.exe`.
+- Created and activated an isolated Python 3.12.13 virtual environment in `.venv`.
+- Verified that Git ignores the virtual environment and that the VS Code terminal can find both Python and Git.
 
 ## In progress
 
-- Add the initial ignore rules and practice the VS Code stage, commit, and sync workflow.
-- Establish a dedicated Python environment for OpenDramaFlow.
+- Establish the Node.js development environment.
 
 ## Blocked
 
@@ -26,9 +27,9 @@ Pre-release / Phase 0 — Development Environment
 
 ## Next
 
-1. Commit and push the initial `.gitignore` through VS Code.
-2. Create a dedicated Python 3.12+ environment for OpenDramaFlow.
-3. Verify or install Node.js and Docker.
+1. Install and verify the Node.js runtime and npm package manager.
+2. Verify or install Docker and Docker Compose.
+3. Record the final Phase 0 toolchain and prepare the first Phase 1 backend task.
 
 ## Known bugs
 
