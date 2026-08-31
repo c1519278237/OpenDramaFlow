@@ -116,3 +116,41 @@
 ### What remains unclear
 
 - How `package.json`, dependency installation, and npm scripts work; these will be introduced with the frontend.
+
+## 2026-08-31 — Docker prerequisite assessment
+
+### What we built
+
+- No Docker runtime was installed because the host prerequisites are not available.
+- Documented a safe path to continue Phase 1 without pretending Docker works.
+
+### Concepts learned
+
+- Docker Desktop on Windows normally uses WSL 2 to run Linux containers.
+- WSL 2 needs hardware virtualization capabilities exposed to the Windows system.
+- A virtual machine needs nested virtualization to run another virtualization layer inside it.
+- A blocked infrastructure dependency should be recorded explicitly instead of hidden behind non-working configuration.
+
+### Commands used
+
+- `Get-CimInstance Win32_ComputerSystem` identified the Sangfor aCloud hypervisor.
+- `Get-CimInstance Win32_Processor` checked whether virtualization extensions are exposed to the guest.
+
+### Code I wrote
+
+- No application code; this was an infrastructure capability assessment.
+
+### Problems encountered
+
+- The Windows development machine is itself a virtual machine.
+- VT-x/EPT-style capabilities are not exposed to the guest, so WSL 2 and local Linux containers cannot run.
+
+### What I can now explain
+
+- Why seeing `HypervisorPresent=True` does not mean nested virtualization is available.
+- Why Docker Desktop cannot be fixed by reinstalling when the required CPU capabilities are absent.
+
+### What remains unclear
+
+- Whether the Sangfor administrator can expose host CPU virtualization features for this VM.
+- Whether a remote Linux Docker engine will be available later.

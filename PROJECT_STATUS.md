@@ -16,21 +16,21 @@ Pre-release / Phase 0 — Development Environment
 - Created and activated an isolated Python 3.12.13 virtual environment in `.venv`.
 - Verified that Git ignores the virtual environment and that the VS Code terminal can find both Python and Git.
 - Installed and verified Node.js 24.20.0 LTS with npm 11.19.0.
+- Assessed Docker prerequisites and identified the host virtualization limitation.
 
 ## In progress
 
-- Verify and establish the Docker development environment.
+- Finish the Phase 0 environment checkpoint and prepare Phase 1.
 
 ## Blocked
 
-- `node` and `npm` are not available on the current `PATH`.
-- `docker` and Docker Compose are not available on the current `PATH`.
+- Local Docker Desktop and WSL 2 are blocked because this Windows system runs inside a Sangfor aCloud VM without nested virtualization (`VirtualizationFirmwareEnabled`, `VMMonitorModeExtensions`, and `SecondLevelAddressTranslationExtensions` are all `False`).
 
 ## Next
 
-1. Verify or install Docker and Docker Compose.
-2. Record the final Phase 0 toolchain.
-3. Prepare the first Phase 1 backend task.
+1. Commit the Phase 0 environment assessment.
+2. Start Phase 1 with an in-memory FastAPI health endpoint, which does not require Docker.
+3. Revisit Docker when a host with nested virtualization or a remote Linux Docker engine is available.
 
 ## Known bugs
 
@@ -38,5 +38,5 @@ Pre-release / Phase 0 — Development Environment
 
 ## Technical debt
 
-- The exact supported versions and installation instructions are not documented yet because no runtime has been verified.
-- No `.gitignore` exists yet; it will be introduced alongside the first real development artifacts.
+- Formal setup instructions still need to be consolidated after the backend package is introduced.
+- The development environment cannot currently run local Linux containers; PostgreSQL and Redis container workflows require a different host or remote Docker engine.
