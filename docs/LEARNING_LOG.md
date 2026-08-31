@@ -76,3 +76,43 @@
 
 - Which dedicated Python environment configuration the project will use.
 - Whether Node.js and Docker are uninstalled or installed outside `PATH`.
+
+## 2026-08-31 — Node.js environment
+
+### What we built
+
+- Installed Node.js 24.20.0 LTS and npm 11.19.0.
+- Made Node.js available in the VS Code integrated terminal.
+
+### Concepts learned
+
+- Node.js is the runtime that executes JavaScript outside the browser.
+- npm is the package manager distributed with Node.js.
+- A process inherits an environment-variable snapshot when it starts; an already-running VS Code process may not see later `PATH` changes.
+- Executables should live in a dedicated installation directory rather than a drive root.
+
+### Commands used
+
+- `node --version` verifies the Node.js runtime.
+- `npm --version` verifies the npm package manager.
+- `where.exe node` and `where.exe npm` show the resolved executable paths.
+- `$env:Path = "C:\Program Files\nodejs;$env:Path"` prepends Node.js to the current PowerShell process path.
+
+### Code I wrote
+
+- No application code yet; this task established the frontend runtime toolchain.
+
+### Problems encountered
+
+- Node.js was initially installed directly into `E:\`, which mixed runtime files with the drive root.
+- After reinstalling into `C:\Program Files\nodejs`, the existing VS Code process still held an older `PATH` snapshot.
+
+### What I can now explain
+
+- The difference between Node.js and npm.
+- Why installing software and resolving its command from an existing terminal are separate concerns.
+- Why LTS releases are preferred for a long-lived application project.
+
+### What remains unclear
+
+- How `package.json`, dependency installation, and npm scripts work; these will be introduced with the frontend.

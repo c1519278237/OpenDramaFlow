@@ -15,10 +15,11 @@ Pre-release / Phase 0 — Development Environment
 - Connected VS Code to the Git executable installed at `E:\Git\cmd\git.exe`.
 - Created and activated an isolated Python 3.12.13 virtual environment in `.venv`.
 - Verified that Git ignores the virtual environment and that the VS Code terminal can find both Python and Git.
+- Installed and verified Node.js 24.20.0 LTS with npm 11.19.0.
 
 ## In progress
 
-- Establish the Node.js development environment.
+- Verify and establish the Docker development environment.
 
 ## Blocked
 
@@ -27,9 +28,9 @@ Pre-release / Phase 0 — Development Environment
 
 ## Next
 
-1. Install and verify the Node.js runtime and npm package manager.
-2. Verify or install Docker and Docker Compose.
-3. Record the final Phase 0 toolchain and prepare the first Phase 1 backend task.
+1. Verify or install Docker and Docker Compose.
+2. Record the final Phase 0 toolchain.
+3. Prepare the first Phase 1 backend task.
 
 ## Known bugs
 
