@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opendramaflow"
+version = "0.1.0"
+description = "An open-source AI filmmaking workflow and production platform."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1,<1.0",
+    "uvicorn[standard]>=0.52.4,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx2>=2.12.0,<3.0",
+    "pytest>=9.1.1,<10.0",
+    "ruff>=0.16.5,<1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

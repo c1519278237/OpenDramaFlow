@@ -154,3 +154,53 @@
 
 - Whether the Sangfor administrator can expose host CPU virtualization features for this VM.
 - Whether a remote Linux Docker engine will be available later.
+
+## 2026-08-31 — First FastAPI endpoint
+
+### What we built
+
+- A Python package configured through `pyproject.toml`.
+- A FastAPI application with `GET /health`.
+- A manual HTTP check and an automated endpoint test.
+- Ruff linting and formatting checks for backend code.
+
+### Concepts learned
+
+- An HTTP request combines a method and path, such as `GET /health`.
+- A FastAPI decorator registers a Python function as an HTTP route.
+- Uvicorn is the ASGI server process that listens on a port and forwards requests to FastAPI.
+- FastAPI serializes a returned Python dictionary into a JSON response.
+- `async def` defines an asynchronous function that can later await I/O operations.
+- A return annotation such as `dict[str, str]` communicates the expected Python type.
+
+### Commands used
+
+- `python -m pip install -e ".[dev]"` installs the project in editable mode with development dependencies.
+- `python -m uvicorn opendramaflow.main:app --reload` starts the development API server.
+- `curl.exe -i http://127.0.0.1:8000/health` inspects the HTTP status, headers, and body.
+- `python -m pytest` runs the automated test suite.
+- `python -m ruff check backend` runs static code-quality checks.
+- `python -m ruff format --check backend` verifies formatting.
+
+### Code I wrote
+
+- Created `backend/opendramaflow/main.py`.
+- Created the FastAPI application instance.
+- Implemented the asynchronous `GET /health` endpoint with a typed return value.
+
+### Problems encountered
+
+- The first editor buffer was not saved, so the actual `main.py` file remained empty until saved explicitly.
+- Starlette deprecated its legacy `httpx` TestClient dependency; the project migrated to the recommended `httpx2` package.
+- Ruff found import-order and formatting differences, which were fixed before the checkpoint.
+
+### What I can now explain
+
+- How `GET /health` travels from an HTTP client through Uvicorn and FastAPI to the endpoint function.
+- The difference between a Python dictionary and the JSON response sent over HTTP.
+- Why manual testing and automated testing both matter.
+
+### What remains unclear
+
+- How request bodies are validated; this is the next `POST /projects` task.
+- How application data persists; Phase 1 intentionally uses memory before introducing PostgreSQL.

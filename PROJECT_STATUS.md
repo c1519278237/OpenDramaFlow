@@ -2,7 +2,7 @@
 
 ## Current version
 
-Pre-release / Phase 0 — Development Environment
+Pre-release / Phase 1 — Minimal Backend
 
 ## Completed
 
@@ -17,10 +17,13 @@ Pre-release / Phase 0 — Development Environment
 - Verified that Git ignores the virtual environment and that the VS Code terminal can find both Python and Git.
 - Installed and verified Node.js 24.20.0 LTS with npm 11.19.0.
 - Assessed Docker prerequisites and identified the host virtualization limitation.
+- Added the Python package configuration and installed the FastAPI development toolchain.
+- Implemented and manually verified `GET /health`.
+- Added an automated health-endpoint test and Ruff quality checks.
 
 ## In progress
 
-- Finish the Phase 0 environment checkpoint and prepare Phase 1.
+- Finish the `GET /health` checkpoint and prepare the first Project API task.
 
 ## Blocked
 
@@ -28,15 +31,16 @@ Pre-release / Phase 0 — Development Environment
 
 ## Next
 
-1. Commit the Phase 0 environment assessment.
-2. Start Phase 1 with an in-memory FastAPI health endpoint, which does not require Docker.
-3. Revisit Docker when a host with nested virtualization or a remote Linux Docker engine is available.
+1. Commit the tested `GET /health` feature.
+2. Learn request bodies and Pydantic by implementing in-memory `POST /projects`.
+3. Implement in-memory `GET /projects` after project creation works.
 
 ## Known bugs
 
-- None; application code has not started.
+- None in the current health endpoint.
 
 ## Technical debt
 
 - Formal setup instructions still need to be consolidated after the backend package is introduced.
 - The development environment cannot currently run local Linux containers; PostgreSQL and Redis container workflows require a different host or remote Docker engine.
+- Python dependencies have compatible version ranges but no lock file yet.
